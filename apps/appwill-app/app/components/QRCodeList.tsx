@@ -22,7 +22,7 @@ function QRCodeList(props: QRCodeListProps) {
 			});
 	}
 
-    const url = window.location.href.replace("back-office", "");
+    const url = window.location.href.replace("/back-office", "");
 
     const handleDeleteQrCode = async(currentDevice: Device) => {
             const updatedDevices = devices.map((device: Device) => {
@@ -56,22 +56,7 @@ function QRCodeList(props: QRCodeListProps) {
                 id="qrcode-canvas-landing-page"
                 size={150}
                 value={url}
-                fgColor="#E6BEAE"
-                eyeColor={[
-                    {
-                        outer: '#000000',
-                        inner: '#E6BEAE',
-                    },
-                    {
-                        outer: '#000000',
-                        inner: '#E6BEAE',
-                    },
-                    {
-                        outer: '#000000',
-                        inner: '#E6BEAE',
-                    }
-                ]}
-                qrStyle="dots"
+                
             />
             <Button className='border-transparent bg-transparent  w-min h-min text-bulma font-medium underline underline-offset-2'  onClick={() => downloadQRCode("qrcode-canvas-landing-page")} >Download</Button>
             </div>
@@ -87,23 +72,7 @@ function QRCodeList(props: QRCodeListProps) {
                         <QRCode
                         id={`qrcode-canvas-${device.key}`}
                         size={150}
-                        value={`${url}/${device.key}`}
-                        fgColor="#E6BEAE"
-                        eyeColor={[
-                            {
-                                outer: '#000000',
-                                inner: '#E6BEAE',
-                            },
-                            {
-                                outer: '#000000',
-                                inner: '#E6BEAE',
-                            },
-                            {
-                                outer: '#000000',
-                                inner: '#E6BEAE',
-                            }
-                        ]}
-                        qrStyle="dots"
+                        value={`${url}/product/${device.key}`}
                     />
                     <Button className='border-transparent bg-transparent  w-min h-min text-bulma font-medium underline underline-offset-2'  onClick={() => downloadQRCode(`qrcode-canvas-${device.key}`)} >Download</Button>
                     </div>
